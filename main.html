@@ -1,16 +1,92 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+	
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    #board {
+      display: none;
+      margin-top: 20px;
+		background-color:pink;
+    }
+
+    .message {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .cell {
+      border: 2px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      cursor: pointer;
+    }
+
+    input {
+      padding: 5px;
+      margin: 5px;
+    }
+
+    #submit {
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <div class="container">
+    <h1>Tic Tac Toe</h1>
 
+    <div id="players-form">
+      <input type="text" id="player-1" placeholder="Player 1 Name">
+      <input type="text" id="player-2" placeholder="Player 2 Name">
+      <button id="submit">Start Game</button>
+    </div>
+
+    <div id="board">
+      <div class="message"></div>
+      <div class="grid">
+        <div class="cell" id="1"></div>
+        <div class="cell" id="2"></div>
+        <div class="cell" id="3"></div>
+        <div class="cell" id="4"></div>
+        <div class="cell" id="5"></div>
+        <div class="cell" id="6"></div>
+        <div class="cell" id="7"></div>
+        <div class="cell" id="8"></div>
+        <div class="cell" id="9"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
+
