@@ -11,7 +11,6 @@
       justify-content: center;
       align-items: flex-start;
       padding: 20px;
-	
     }
 
     .container {
@@ -21,7 +20,6 @@
     #board {
       display: none;
       margin-top: 20px;
-		background-color:pink;
     }
 
     .message {
@@ -65,8 +63,9 @@
     <h1>Tic Tac Toe</h1>
 
     <div id="players-form">
-      <input type="text" id="player-1" placeholder="Player 1 Name">
-      <input type="text" id="player-2" placeholder="Player 2 Name">
+      <!-- CHANGE IDs TO MATCH CYPRESS TESTS -->
+      <input type="text" id="player1" placeholder="Player 1 Name">
+      <input type="text" id="player2" placeholder="Player 2 Name">
       <button id="submit">Start Game</button>
     </div>
 
@@ -89,4 +88,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

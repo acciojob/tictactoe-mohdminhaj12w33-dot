@@ -1,6 +1,6 @@
 const submitBtn = document.getElementById('submit');
-const player1Input = document.getElementById('player-1');
-const player2Input = document.getElementById('player-2');
+const player1Input = document.getElementById('player1');
+const player2Input = document.getElementById('player2');
 const boardDiv = document.getElementById('board');
 const messageDiv = boardDiv.querySelector('.message');
 const cells = document.querySelectorAll('.cell');
@@ -16,8 +16,8 @@ const winningCombos = [
 ];
 
 submitBtn.addEventListener('click', () => {
-  player1 = player1Input.value.trim() || "Player 1";
-  player2 = player2Input.value.trim() || "Player 2";
+  player1 = player1Input.value.trim() || "Player1"; // match Cypress default
+  player2 = player2Input.value.trim() || "Player2";
   currentPlayer = player1;
 
   document.getElementById('players-form').style.display = 'none';
@@ -31,23 +31,21 @@ submitBtn.addEventListener('click', () => {
 cells.forEach(cell => {
   cell.addEventListener('click', () => {
     const index = parseInt(cell.id) - 1;
-    if (board[index] || checkWinner()) return; // Already filled or game over
+    if (board[index] || checkWinner()) return;
 
-    board[index] = currentPlayer === player1 ? 'X' : 'O';
+    board[index] = currentPlayer === player1 ? 'x' : 'o'; // lowercase to match Cypress
     cell.textContent = board[index];
 
     if (checkWinner()) {
-      messageDiv.textContent = `${currentPlayer} congratulations, you won!`;
+      messageDiv.textContent = `${currentPlayer} congratulations you won!`;
       return;
     }
 
-    // Check tie
     if (board.every(cell => cell)) {
       messageDiv.textContent = `It's a tie!`;
       return;
     }
 
-    // Switch player
     currentPlayer = currentPlayer === player1 ? player2 : player1;
     messageDiv.textContent = `${currentPlayer}, you're up!`;
   });
@@ -62,4 +60,3 @@ function checkWinner() {
   }
   return false;
 }
-
